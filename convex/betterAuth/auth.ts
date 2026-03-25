@@ -21,7 +21,7 @@ export const authComponent = createClient<DataModel, typeof schema>(
 export const createAuthOptions = (ctx: GenericCtx<DataModel>) => {
   const baseURL = process.env.CONVEX_SITE_URL?.startsWith("http") 
     ? process.env.CONVEX_SITE_URL 
-    : `https://${process.env.CONVEX_SITE_URL}`;
+    : process.env.CONVEX_SITE_URL ? `https://${process.env.CONVEX_SITE_URL}` : "";
   return {
     appName: "My App",
     baseURL,
@@ -53,7 +53,9 @@ export const createAuthOptions = (ctx: GenericCtx<DataModel>) => {
     },
     plugins: [
       convex({ authConfig }),
-      crossDomain({ siteUrl: (ctx as any).request?.headers.get("origin") || "https://shipweek.buildin21.com" }),
+      crossDomain({ 
+        siteUrl: (ctx as any).request?.headers?.get("origin") || "https://shipweek.buildin21.com" 
+      }),
     ],
   } satisfies BetterAuthOptions;
 };
