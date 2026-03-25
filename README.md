@@ -1,73 +1,71 @@
-# React + TypeScript + Vite
+# Ship Week Contenders
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A leaderboard for the best shipping projects, built with a modern tech stack. Track contenders, vote on your favorites, and see which projects are winning the ship week.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Project Leaderboard**: Real-time ranking of submitted projects.
+- **Google Authentication**: Secure sign-in powered by Better Auth + Convex integration.
+- **Vote System**: Authenticated users can upvote projects once to boost their ranking.
+- **Open Source Tracking**: Automatically fetches GitHub star counts for open-source submissions.
+- **Responsive Dashboard**: Beautifully designed UI with dark mode support and custom aesthetics.
+- **Telegram Integration**: Project owners can showcase their linked Telegram channelpfps.
 
-## React Compiler
+## 🛠 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Backend/Database**: [Convex](https://convex.dev/)
+- **Authentication**: [Better Auth](https://better-auth.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
 
-## Expanding the ESLint configuration
+##  Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 1. Requirements
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js (v18+)/Bun
+- A Convex project set up at [convex.dev](https://convex.dev)
+- Google Cloud Console project for OAuth credentials
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 2. Environment Variables
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Create a `.env.local` in the root directory:
+
+```env
+# Convex
+VITE_CONVEX_URL=https://your-project.convex.cloud
+VITE_CONVEX_SITE_URL=https://your-project.convex.site
+
+# Better Auth (Backend - add these in the Convex Dashboard)
+BETTER_AUTH_SECRET=your_auth_secret
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 3. Installation
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+bun install
 ```
+
+### 4. Development
+
+Run the Convex development server:
+```bash
+bun x convex dev
+```
+
+In a separate terminal, start the Vite frontend:
+```bash
+bun run dev
+```
+
+## 🏗 Schema & Structure
+
+- `convex/schema.ts`: Database schema defining projects, users, and sessions.
+- `convex/projects.ts`: Business logic for project management, upvoting, and deletion.
+- `convex/betterAuth/auth.ts`: Better Auth configuration and social provider setup.
+- `src/lib/auth-client.ts`: Frontend authentication client.
+
+---
+*Just keep shipping.*
