@@ -53,7 +53,7 @@ export const createAuthOptions = (ctx: GenericCtx<DataModel>) => {
     },
     plugins: [
       convex({ authConfig }),
-      crossDomain({ siteUrl: "http://localhost:5173" }),
+      crossDomain({ siteUrl: (ctx as any).request?.headers.get("origin") || "https://shipweek.buildin21.com" }),
     ],
   } satisfies BetterAuthOptions;
 };
