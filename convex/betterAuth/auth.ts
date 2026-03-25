@@ -29,6 +29,7 @@ export const createAuthOptions = (ctx: GenericCtx<DataModel>) => {
     trustedOrigins: [
       baseURL,
       "http://localhost:5173",
+      "https://shipweek.buildin21.com"
     ],
     secret: process.env.BETTER_AUTH_SECRET,
     database: authComponent.adapter(ctx),
