@@ -120,9 +120,9 @@ export function ContendersTable({ userId: propUserId }: { userId?: string }) {
               <TableCell>
                 <div className="flex items-center gap-2">
                   {item.open_source ? (
-                    <span className="px-2 py-0.5 bg-gray-100 text-black border border-gray-200 dark:bg-[#111] dark:text-white text-[10px] uppercase font-mono tracking-wider dark:border-[#333] rounded-[4px]">Yes</span>
+                    <span className="px-2 py-0.5 text-emerald-600 bg-emerald-50 border border-emerald-200 dark:text-emerald-400 dark:bg-emerald-950/30 dark:border-emerald-800/50 text-[10px] uppercase font-mono tracking-wider rounded-[4px]">Yes</span>
                   ) : (
-                    <span className="px-2 py-0.5 bg-white text-gray-400 border border-gray-100 dark:bg-black dark:text-[#666] text-[10px] uppercase font-mono tracking-wider dark:border-[#222] rounded-[4px]">No</span>
+                    <span className="px-2 py-0.5 text-rose-600 bg-rose-50 border border-rose-200 dark:text-rose-400 dark:bg-rose-950/30 dark:border-rose-800/50 text-[10px] uppercase font-mono tracking-wider rounded-[4px]">No</span>
                   )}
                   {item.open_source && item.repository && (
                     <a href={item.repository} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-black dark:text-[#666] dark:hover:text-white transition-colors" title="Repository">
@@ -138,7 +138,7 @@ export function ContendersTable({ userId: propUserId }: { userId?: string }) {
                <TableCell>
                 <div className="flex flex-wrap gap-1">
                   {item.tags.split(',').filter(Boolean).map((t: string, idx: number) => (
-                    <span key={idx} className="px-1.5 py-0.5 text-gray-600 bg-gray-100 border border-gray-200 dark:text-[#888] dark:bg-[#111] dark:border-[#222] text-[10px] font-mono uppercase tracking-tight rounded-[4px]">
+                    <span key={idx} className="px-1.5 py-0.5 text-gray-600 dark:text-[#888] border border-dashed border-gray-300 dark:border-[#333] text-[10px] font-mono uppercase tracking-tight rounded-[4px] bg-[repeating-linear-gradient(45deg,transparent,transparent_2px,rgba(0,0,0,0.05)_2px,rgba(0,0,0,0.05)_4px)] dark:bg-[repeating-linear-gradient(45deg,transparent,transparent_2px,rgba(255,255,255,0.05)_2px,rgba(255,255,255,0.05)_4px)]">
                       {t.trim()}
                     </span>
                   ))}

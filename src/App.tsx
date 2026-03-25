@@ -102,6 +102,9 @@ function Main() {
         </div>
 
         <ContendersTable userId={userId} />
+        <p className="mt-8 text-center text-[10px] uppercase tracking-[0.2em] text-gray-400 dark:text-[#555] font-mono italic">
+          Just keep shipping
+        </p>
       </main>
 
       <Toaster 
