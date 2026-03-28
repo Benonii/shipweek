@@ -119,7 +119,7 @@ export function CreateModal({ userId: propUserId }: { userId?: string }) {
           }}
           className="rounded-[6px] border border-gray-300 bg-white text-black hover:bg-gray-100 dark:border-[#333] dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black transition-colors px-6 h-10 font-mono text-sm tracking-wide"
         >
-          Submit Project
+          Submit
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] rounded-[12px] border border-gray-200 bg-white text-black dark:border-[#333] dark:bg-black dark:text-[#EDEDED] p-6 shadow-2xl overflow-y-auto max-h-[90vh]">

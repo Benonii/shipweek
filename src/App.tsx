@@ -6,6 +6,7 @@ import { ModeToggle } from './components/mode-toggle';
 import { ThemeProvider } from './components/theme-provider';
 import { Rocket } from 'lucide-react';
 import { Button } from './components/ui/button';
+import { PowerOff } from 'lucide-react';
 // @ts-ignore
 import { api } from '../convex/_generated/api';
 
@@ -33,9 +34,9 @@ function AuthHeader() {
     <div className="flex items-center gap-4">
       {user ? (
         <div className="flex items-center gap-3">
-          <span className="text-[10px] uppercase font-mono tracking-wider text-gray-500 dark:text-[#888]">{user.email}</span>
+          <span className="sm:hidden md:block text-[10px] uppercase font-mono tracking-wider text-gray-500 dark:text-[#888]">{user.email}</span>
           <Button variant="outline" size="sm" onClick={handleSignOut} className="rounded-[6px] border-gray-300 bg-white text-black hover:bg-gray-100 dark:border-[#333] dark:bg-black dark:text-[#CCC] dark:hover:bg-[#222] h-10 px-3">
-            <span className="text-[10px] uppercase font-mono tracking-wider">Sign out</span>
+            <span className="text-[10px] uppercase font-mono tracking-wider"><PowerOff /></span>
           </Button>
         </div>
       ) : (
